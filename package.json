@@ -1,0 +1,18 @@
+{
+  "name": "avias-fuel",
+  "type": "module",
+  "description": "This app will check the fuel availability at gas stations and send a notification if there is fuel available with price.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.3.1",
+    "dotenv": "^16.0.3",
+    "node-pushover": "^1.0.0",
+    "puppeteer": "^19.6.3"
+  }
+}
