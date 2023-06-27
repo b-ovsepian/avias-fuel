@@ -6,8 +6,7 @@ import puppeteer from "puppeteer";
 import Pushover from "node-pushover";
 import cron from "node-cron";
 
-cron.schedule("* * 2 * *", () => {
-  (async () => {
+(async () => {
     /* Loading the environment variables from the .env file. */
     const { __dirname } = getPaths(import.meta.url);
     dotenv.config({ path: path.join(__dirname, "./.env") });
@@ -79,7 +78,10 @@ cron.schedule("* * 2 * *", () => {
               "Avias fuel",
               `Fuel ${fuel} is available \n Price: ${rate.toFixed(2)} UAH`
             );
-          }
+          } else {
+                console.log('Fuel is not available');
+                return await browser.close();
+            }
         }
       } catch (error) {
         console.log(error);
@@ -91,8 +93,7 @@ cron.schedule("* * 2 * *", () => {
     }
 
     await browser.close();
-  })();
-});
+})();
 
 /**
  * It takes a file URL and returns an object with the file's pathname and its directory name
